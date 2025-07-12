@@ -59,20 +59,23 @@ body{font-family:'Lato', sans-serif;font-size:16px}body.active{overflow:hidden;z
 
 .project {
   display: flex;
-  flex-direction: row;
   align-items: center;
-  padding: 20px;
+  padding: 30px;
   background: #fff;
   border-radius: 8px;
   margin-bottom: 30px;
+  gap: 40px;
 }
 
 .project-image {
-  flex: 0 0 150px; /* fixed width */
+  width: 180px;
+  min-width: 180px;
+  height: 180px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 20px;
+  padding: 20px;
+  position: relative;
 }
 
 .project-image img {
@@ -80,23 +83,33 @@ body{font-family:'Lato', sans-serif;font-size:16px}body.active{overflow:hidden;z
   height: auto;
   max-height: 120px;
   object-fit: contain;
-  display: block;
 }
 
 .project-info {
   flex: 1;
   text-align: left;
-  padding: 10px;
+  padding: 20px;
 }
 
-@media only screen and (max-width: 768px) {
+@media (max-width: 768px) {
   .project {
     flex-direction: column;
-    align-items: center;
     text-align: center;
   }
 
+  .project-image {
+    width: 100%;
+    min-width: unset;
+    height: auto;
+    padding-right: 0;
+  }
+
+  .project-image::after {
+    display: none; /* hide divider on small screens */
+  }
+
   .project-info {
-    padding: 20px 0;
+    padding-left: 0;
+    margin-top: 20px;
   }
 }
